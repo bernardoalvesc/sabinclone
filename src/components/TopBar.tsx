@@ -1,5 +1,5 @@
-import librasIcon from "@/assets/BarraTopo/libras.svg";
-import acessibilidadeIcon from "@/assets/BarraTopo/acessibilidade.svg";
+import librasIcon from "@/assets/TopBar/libras.svg";
+import acessibilidadeIcon from "@/assets/TopBar/acessibilidade.svg";
 
 export function TopBar() {
   return (
