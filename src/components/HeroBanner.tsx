@@ -1,11 +1,11 @@
-import { useEffect } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
 import Splide from "@splidejs/splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
 import banner1 from "@/assets/Hero/banner1.png";
 import banner2 from "@/assets/Hero/banner2.png";
 import banner3 from "@/assets/Hero/banner3.png";
-import seta from "@/assets/Hero/seta.png";
+import seta from "@/assets/seta.png";
 import newad from "@/assets/Hero/newad.png";
 
 const banners = [
@@ -15,14 +15,27 @@ const banners = [
 ];
 
 export const HeroBanner = () => {
+  const progressRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    new Splide("#hero-splide", {
+    const splide = new Splide("#hero-splide", {
       type: "loop",
       autoplay: true,
-      interval: 5000,
+      interval: 2000,
       arrows: true,
       pagination: true,
-    }).mount();
+    });
+
+    splide.on("move", () => {
+      if (progressRef.current) {
+        progressRef.current.classList.remove("animate-progress");
+        // trigger reflow to restart the animation
+        void progressRef.current.offsetWidth;
+        progressRef.current.classList.add("animate-progress");
+      }
+    });
+
+    splide.mount();
   }, []);
 
   return (
@@ -59,6 +72,12 @@ export const HeroBanner = () => {
               </button>
             </div>
           </div>
+
+          {/* Progress Bar animada */}
+          <div
+            ref={progressRef}
+            className="absolute bottom-0 left-0 h-[4px] bg-red-500 animate-progress"
+          />
         </div>
 
         {/* Espaço para anúncio */}

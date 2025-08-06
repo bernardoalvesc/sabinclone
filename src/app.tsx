@@ -1,4 +1,4 @@
-import Index from "./index"; // Note: com I maiúsculo
+import Index from "./index"; 
 import "./App.css";
 
 export function App() {

@@ -17,25 +17,25 @@ const categories: Category[] = [
     id: "covid",
     image: covid,
     width: 264,
-    height: 122,
+    height: 110,
   },
   {
     id: "laboratoriais",
     image: laboratoriais,
     width: 264,
-    height: 122,
+    height: 110,
   },
   {
     id: "vacinas",
     image: vacinas,
     width: 261,
-    height: 125,
+    height: 110,
   },
   {
     id: "pacotes",
     image: pacotes,
     width: 265,
-    height: 120,
+    height: 110,
   },
 ];
 

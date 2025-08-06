@@ -18,6 +18,15 @@ const config: Config = {
           foreground: "hsl(var(--secondary-foreground))",
         },
       },
+      animation: {
+        progress: "progressBar 2s linear forwards",
+      },
+      keyframes: {
+        progressBar: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+      },
     },
   },
   plugins: [],
