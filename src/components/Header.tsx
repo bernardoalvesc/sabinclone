@@ -17,7 +17,6 @@ export const Header = () => {
     console.log("Buscando por:", searchQuery);
   };
 
-  // Fecha dropdown da conta ao clicar fora
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -36,7 +35,6 @@ export const Header = () => {
   return (
     <header className="w-full bg-white shadow-sm">
       <div className="container mx-auto px-4 lg:px-8 py-4 flex flex-col lg:flex-row lg:items-center gap-4">
-        {/* Logo + Loja Virtual */}
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo Sabin" className="w-28 h-auto" />
           <span className="text-sm font-light text-gray-800">
@@ -44,7 +42,6 @@ export const Header = () => {
           </span>
         </div>
 
-        {/* Search bar */}
         <form
           onSubmit={handleSearch}
           className="flex-1 flex max-w-2xl bg-white border border-gray-300 rounded-full overflow-hidden"
@@ -68,7 +65,6 @@ export const Header = () => {
           </button>
         </form>
 
-        {/* Conta do usuário + dropdown ao clique */}
         <div className="relative" ref={accountRef}>
           <div
             className="flex items-center gap-2 cursor-pointer"
@@ -92,7 +88,6 @@ export const Header = () => {
             />
           </div>
 
-          {/* Dropdown da conta */}
           {isAccountDropdownOpen && (
             <div className="absolute right-0 mt-2 w-52 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
               <ul className="text-gray-700 text-sm divide-y divide-gray-200">
@@ -125,13 +120,12 @@ export const Header = () => {
           )}
         </div>
 
-        {/* Carrinho de compras com dropdown ao hover no texto */}
         <div className="relative w-[100px] h-[100px] rounded-lg bg-red-500 flex flex-col items-center justify-center text-white hover:opacity-90 transition">
           {/* Ícone do carrinho */}
           <img
             src={cartIcon}
             alt="Carrinho"
-            className="w-[40px] h-[40px] object-contain"
+            className="w-[50px] h-[50px] object-contain"
           />
           <span className="absolute top-1 right-1 w-5 h-5 rounded-full bg-gray-800 text-white text-xs flex items-center justify-center font-bold z-10">
             {cartCount}
@@ -140,7 +134,9 @@ export const Header = () => {
           {/* Texto + hover trigger */}
           <div className="relative group mt-1">
             <div className="text-[11px] text-center leading-tight font-medium cursor-pointer group-hover:underline">
-              MINHAS<br />COMPRAS
+              MINHAS
+              <br />
+              COMPRAS
             </div>
 
             {/* Dropdown visível no hover do texto */}
