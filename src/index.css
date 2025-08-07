@@ -123,3 +123,36 @@ All colors MUST be HSL.
     @apply bg-[#e30613] scale-110;
   }
 }
+.custom-arrows {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 0 0.5rem;
+  z-index: 10;
+}
+
+.custom-arrow {
+  width: 30px;
+  height: 30px;
+  background-color: #e30613;
+  border-radius: 9999px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.custom-arrow:hover {
+  background-color: #c50510;
+}
+
+.custom-arrow svg {
+  width: 14px;
+  height: 14px;
+}

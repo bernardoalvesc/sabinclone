@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { HeroBanner } from "@/components/HeroBanner";
@@ -12,7 +13,12 @@ import { ProductCard } from "@/components/ProductCard/productCard";
 import { productsPage1 } from "@/components/ProductCard/mocks/products-page1";
 import { productsPage2 } from "@/components/ProductCard/mocks/products-page2";
 import { Pagination } from "@/components/ProductCard/pagination";
-import type { Product } from "@/components/ProductCard/types";
+import type { Product } from "@/components/ProductCard/productCard.types";
+
+import { HighlightsSection } from "@/components/HighlightsSection";
+import { PopularProductsCarousel } from "@/components/PopularProductsCarousel";
+import { Newsletter } from "@/components/Newsletter/Newsletter";
+import { Footer } from "@/components/Footer";
 
 export default function Index() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,6 +51,18 @@ export default function Index() {
           onPageChange={setCurrentPage}
         />
       </section>
+
+      {/* Destaques fixos abaixo da paginação */}
+      <HighlightsSection />
+
+      {/* Carrossel de produtos populares com Splide.js */}
+      <PopularProductsCarousel />
+
+      {/* Seção de newsletter */}
+      <Newsletter />
+
+      {/* Rodapé */}
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import type { Product } from "../types";
+import type { Product } from "../productCard.types";
 import vacina from "@/assets/Icons/vacina.svg";
 import tubo from "@/assets/Icons/tubo.svg";
 import virus from "@/assets/Icons/virus.svg";

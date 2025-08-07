@@ -1,5 +1,5 @@
 import { ComponentChildren } from "preact";
-import type { Product } from "./types";
+import type { Product } from "./productCard.types";
 import { Button } from "@/components/ui/Button";
 import cartIcon from "@/assets/Vector.svg";
 
@@ -78,7 +78,7 @@ export const ProductCard = ({
 
         {isOutOfStock ? (
           <Button
-            variant="disabled" // continua usando o estilo de "cinza desativado"
+            variant="outline"
             onClick={onNotifyMe}
             className="cursor-pointer"
           >
