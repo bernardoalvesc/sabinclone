@@ -110,3 +110,16 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+@layer components {
+  .splide__pagination {
+    @apply flex justify-center gap-2 mt-6;
+  }
+
+  .splide__pagination__page {
+    @apply w-3 h-3 rounded-full bg-gray-300 transition-all duration-300;
+  }
+
+  .splide__pagination__page.is-active {
+    @apply bg-[#e30613] scale-110;
+  }
+}

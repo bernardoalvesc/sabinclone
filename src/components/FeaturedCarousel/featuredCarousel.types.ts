@@ -1,12 +1,12 @@
 export interface FeaturedProduct {
-  id: string;
+  id: number;
   title: string;
-  price: string;
-  originalPrice: string;
-  installments: string;
-  isExclusive?: boolean;
   icon: string;
-  onBuy?: () => void;
+  isExclusive: boolean;
+  originalPrice: string;
+  price: string;
+  installments: string;
+  onBuy: () => void;
 }
 
 export interface FeaturedCarouselProps {

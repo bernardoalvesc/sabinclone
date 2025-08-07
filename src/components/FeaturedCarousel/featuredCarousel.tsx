@@ -4,7 +4,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 
 import seta from "@/assets/seta.png";
 import cartIcon from "@/assets/Vector.svg";
-import type { FeaturedCarouselProps } from "./FeaturedCarousel.types";
+import type { FeaturedCarouselProps } from "./featuredCarousel.types";
 
 export const FeaturedCarousel = ({ products }: FeaturedCarouselProps) => {
   const splideRef = useRef<HTMLDivElement>(null);
@@ -51,7 +51,7 @@ export const FeaturedCarousel = ({ products }: FeaturedCarouselProps) => {
             {products.map((product) => (
               <li
                 key={product.id}
-                className="splide__slide bg-white rounded-lg border border-gray-200 w-[260px] h-[174px] px-4 pt-10 pb-4 flex flex-col justify-between relative text-left"
+                className="splide__slide bg-white rounded-lg border border-gray-200 w-[260px] h-[174px] px-4 pt-10 pb-4 flex flex-col justify-between relative text-left hover:shadow-md hover:-translate-y-1 transform transition-all duration-300"
               >
                 {/* Ícone no canto superior esquerdo */}
                 <div className="absolute top-0 left-0 m-0">
@@ -64,19 +64,19 @@ export const FeaturedCarousel = ({ products }: FeaturedCarouselProps) => {
 
                 {/* Badge no canto superior direito */}
                 {product.isExclusive && (
-                  <div className="absolute top-0 right-0 m-0">
-                    <div className="bg-[#e30613] text-white text-[10px] font-bold uppercase px-2 py-[2px] rounded-full mt-1 mr-1">
+                  <div className="absolute top-[1px] right-[1px]">
+                    <div className="bg-[#e30613] text-white text-[10px] font-bold uppercase px-2 py-[2px] rounded-tr-lg rounded-bl-full">
                       SERVIÇO EXCLUSIVO
                     </div>
                   </div>
                 )}
 
-                {/* Título com altura mínima para forçar alinhamento */}
+                {/* Título */}
                 <h3 className="text-sm text-[#1e1e1e] font-bold leading-snug mb-4 min-h-[40px]">
                   {product.title}
                 </h3>
 
-                {/* Footer fixo na base do card */}
+                {/* Footer */}
                 <div className="flex items-end justify-between w-full mt-auto">
                   <div className="text-left">
                     <div className="text-xs text-black line-through decoration-[#e30613]">
@@ -102,7 +102,7 @@ export const FeaturedCarousel = ({ products }: FeaturedCarouselProps) => {
           </ul>
         </div>
 
-        {/* Setas externas funcionais */}
+        {/* Setas externas */}
         <button
           ref={prevBtnRef}
           className="absolute top-1/2 -translate-y-1/2 left-[-20px] w-10 h-10 bg-white rounded-full border border-gray-300 flex items-center justify-center shadow z-10"
@@ -118,6 +118,21 @@ export const FeaturedCarousel = ({ products }: FeaturedCarouselProps) => {
           <img src={seta} alt="Próximo" className="w-6 h-6" />
         </button>
       </div>
+
+      {/* Paginação (estilizada via Tailwind) */}
+      <style>
+        {`.splide__pagination {
+            @apply mt-6 flex justify-center gap-2;
+          }
+
+          .splide__pagination__page {
+            @apply w-2.5 h-2.5 rounded-full bg-gray-400 opacity-60 transition-all duration-300;
+          }
+
+          .splide__pagination__page.is-active {
+            @apply h-3;
+          }`}
+      </style>
     </section>
   );
 };
