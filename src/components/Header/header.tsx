@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "preact/hooks";
 import logo from "@/assets/Header/Logo.png";
-import cartIcon from "@/assets/Header/carrinho.png";
 import userIcon from "@/assets/Header/user.svg";
 import menuIcon from "@/assets/Header/menu.png";
 import searchIcon from "@/assets/Header/search.svg";
+import cartIcon from "@/assets/Vector.svg";
 
 export const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -35,6 +35,7 @@ export const Header = () => {
   return (
     <header className="w-full bg-white shadow-sm">
       <div className="container mx-auto px-4 lg:px-8 py-4 flex flex-col lg:flex-row lg:items-center gap-4">
+        {/* Logo + texto */}
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo Sabin" className="w-28 h-auto" />
           <span className="text-sm font-light text-gray-800">
@@ -42,6 +43,7 @@ export const Header = () => {
           </span>
         </div>
 
+        {/* Barra de busca */}
         <form
           onSubmit={handleSearch}
           className="flex-1 flex max-w-2xl bg-white border border-gray-300 rounded-full overflow-hidden"
@@ -65,6 +67,7 @@ export const Header = () => {
           </button>
         </form>
 
+        {/* Conta (clique) */}
         <div className="relative" ref={accountRef}>
           <div
             className="flex items-center gap-2 cursor-pointer"
@@ -120,54 +123,20 @@ export const Header = () => {
           )}
         </div>
 
+        {/* Carrinho (sem hover dropdown) */}
         <div className="relative w-[100px] h-[100px] rounded-lg bg-red-500 flex flex-col items-center justify-center text-white hover:opacity-90 transition">
-          {/* Ícone do carrinho */}
           <img
             src={cartIcon}
             alt="Carrinho"
-            className="w-[50px] h-[50px] object-contain"
+            className="w-[24px] h-[24px] object-contain"
           />
           <span className="absolute top-1 right-1 w-5 h-5 rounded-full bg-gray-800 text-white text-xs flex items-center justify-center font-bold z-10">
             {cartCount}
           </span>
-
-          {/* Texto + hover trigger */}
-          <div className="relative group mt-1">
-            <div className="text-[11px] text-center leading-tight font-medium cursor-pointer group-hover:underline">
-              MINHAS
-              <br />
-              COMPRAS
-            </div>
-
-            {/* Dropdown visível no hover do texto */}
-            <div className="absolute right-0 mt-2 w-52 bg-white border border-gray-200 rounded-lg shadow-lg z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200">
-              <ul className="text-gray-700 text-sm divide-y divide-gray-200">
-                <li>
-                  <a
-                    href="/login"
-                    className="block px-4 py-3 hover:bg-gray-100 text-center uppercase font-medium"
-                  >
-                    ENTRE/CADASTRE-SE
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/pedidos"
-                    className="block px-4 py-3 hover:bg-gray-100 text-center"
-                  >
-                    MEUS PEDIDOS
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/cadastro"
-                    className="block px-4 py-3 hover:bg-gray-100 text-center"
-                  >
-                    MEU CADASTRO
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="mt-1 text-[11px] text-center leading-tight font-medium">
+            MINHAS
+            <br />
+            COMPRAS
           </div>
         </div>
       </div>

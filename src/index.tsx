@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { HeroBanner } from "@/components/HeroBanner";
-import CategorySection from "@/components/CategorySection";
+import { CategorySection } from "@/components/CategorySection";
 import {
   FeaturedCarousel,
   featuredProducts,
